@@ -92,15 +92,19 @@ I tried doing this to classes with number of images more the the mean but that g
 Here is an example of an original image and an augmented image:
 
 ![alt text][image6]
+
 applying random brightness
 
 ![alt text][image7]
+
 applying random rotation
 
 ![alt text][image8]
+
 applying random translation
 
 ![alt text][image9]
+
 applying all filters at random 
 
 ![alt text][image10]
@@ -112,6 +116,7 @@ The difference between the original data set and the augmented data set is the f
 I then decided to convert the images to grayscale using a technique I saw online. The reason I did this is because that color should not make a difference for the classifier (a human can detect the signs using other features than color). 
 
 Here is an example of a traffic sign image before and after grayscaling.
+
 ![alt text][image5]
 
 Finally, I normalized the image data for numerical reasons. It usually helps the training be quicker to converge and to the correct minimum.
