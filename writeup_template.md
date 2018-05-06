@@ -67,7 +67,8 @@ A bar chart showing how many images are in each class for the training-set. A ma
 
 ![alt text][image1]
 
-also, here is a three random to visualize random 10 images from that class (this will come handy when deciding how to augment data:
+also, here is three random classes to visualize 10 random images from that class (this will come in handy when deciding how to augment data):
+
 ![alt text][image2]
 ![alt text][image3]
 ![alt text][image4]
@@ -85,20 +86,27 @@ the total number of images will come to at least 800. I used several preprocessi
 3. random translate
 4. random rotation
 5. random brightness
+
 I tried doing this to classes with number of images more the the mean but that got me no improvement in accuracy (perhaps that data is "rich" enough) so I dropped it.
 
 Here is an example of an original image and an augmented image:
+
 ![alt text][image6]
 applying random brightness
+
 ![alt text][image7]
 applying random rotation
+
 ![alt text][image8]
 applying random translation
+
 ![alt text][image9]
 applying all filters at random 
+
 ![alt text][image10]
 
 The difference between the original data set and the augmented data set is the following ... 
+
 ![alt text][image11]
 
 I then decided to convert the images to grayscale using a technique I saw online. The reason I did this is because that color should not make a difference for the classifier (a human can detect the signs using other features than color). 
