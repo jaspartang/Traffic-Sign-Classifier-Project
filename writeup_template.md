@@ -32,11 +32,11 @@ The goals / steps of this project are the following:
 [image11]: ./examples/newHistogram.png "new histogram"
 
 [image12]: ./examples/pic1.jpg "Traffic Sign 1"
-[image13]: ./examples/pic2.png "Traffic Sign 2"
-[image14]: ./examples/pic3.png "Traffic Sign 3"
-[image15]: ./examples/pic4.png "Traffic Sign 4"
-[image16]: ./examples/pic5.png "Traffic Sign 5"
-[image17]: ./examples/pic6.png "Traffic Sign 6"
+[image13]: ./examples/pic2.jpg "Traffic Sign 2"
+[image14]: ./examples/pic3.jpg "Traffic Sign 3"
+[image15]: ./examples/pic4.jpg "Traffic Sign 4"
+[image16]: ./examples/pic5.jpg "Traffic Sign 5"
+[image17]: ./examples/pic6.jpg "Traffic Sign 6"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -152,7 +152,7 @@ As I mentioned, I tried many different approaches with the LeNet architecture. F
 
 BATCH_SIZE = 64 - I read an article from Yann Lecun about not using batch size over 32 because in some situations it may not converge to the true minima. On the other hand, I wanted to speed things up a bit, so 64 was the compromise.
 
-optimizer - AdamOptimizer because it is good enough for this purposes.
+optimizer - AdamOptimizer because it is good enough for this purpose.
 
 EPOCHS = 15 - I saw that there is no significant gain in training more epochs. It kind of reached a plateu after that.
 
@@ -163,12 +163,12 @@ learning rate = 0.001 - in the new network, this learning rate did the job. In t
 My final model results were:
 * validation set accuracy of 0.962 
 * test set accuracy of 0.945
+
 As described, I tried data augmentation, normalization, decaying learning rate, different batch sizes, inserting dropouts in the model all this in the LeNet model, however, no matter what I've done I could not top 92.5% in the test set. So I altered the network, especially the first 3 convolutional layers and made them much deeper (depth).
 
-If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen? 
 
-LeNet, because the problem seemed similar the the MNIST problem. That proved wrong (atleast for getting 93% accuracy)
+LeNet, because the problem seemed similar the the MNIST problem. That proved wrong (atleast for getting >93% accuracy)
 
 * What were some problems with the initial architecture?
 
@@ -214,7 +214,7 @@ Here are the results of the prediction:
 Overall - 66.7% (and if not considering the 5th sign which is not in the class list, it is still 80%)
 
 The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This is much lower than the validation set accuracy and also the test set accuracy. I suspect 2 reasons:
-1. Large number theorm - I only checked 6 signs. Perhaps trying many more samples will correct the statistics.
+1. Statistics - I only checked 6 signs. Perhaps trying many more samples will correct the statistics.
 2. Overfitting - Perhaps the model is overfitted. To backup this theory, I noticed that my previous model (LeNet) which had less accuracy in the test set, did 100% in my sign set.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 3 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
@@ -222,28 +222,51 @@ The model was able to correctly guess 4 of the 5 traffic signs, which gives an a
 For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
 
 true value - class #4: Speed limit (70km/h)
+
 1st guess: 0 (100%)
+
 2nd guess: 4 (0%)
+
 3rd guess: 1 (0%)
+
 true value - class #14: Stop
+
 1st guess: 14 (97%)
+
 2nd guess: 1 (1%)
+
 3rd guess: 2 (1%)
+
 true value - class #18: General caution
+
 1st guess: 18 (100%)
+
 2nd guess: 27 (0%)
+
 3rd guess: 26 (0%)
+
 true value - class #28: Children crossing
+
 1st guess: 28 (100%)
+
 2nd guess: 24 (0%)
+
 3rd guess: 27 (0%)
+
 true value - class #39: Keep left
+
 1st guess: 17 (71%)
+
 2nd guess: 38 (27%)
+
 3rd guess: 9 (1%)
+
 true value - class #13: Yield
+
 1st guess: 13 (100%)
+
 2nd guess: 3 (0%)
+
 3rd guess: 12 (0%)
 
 
