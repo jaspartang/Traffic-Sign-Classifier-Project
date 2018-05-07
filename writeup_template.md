@@ -66,7 +66,7 @@ A bar chart showing how many images are in each class for the training-set. A ma
 
 ![alt text][image1]
 
-also, here is three random classes to visualize 10 random images from that class (this will come in handy when deciding how to augment data):
+also, here are three random classes to visualize 10 random images from that class (this will come in handy when deciding how to augment data):
 
 ![alt text][image2]
 ![alt text][image3]
@@ -108,7 +108,7 @@ applying all filters at random
 
 ![alt text][image10]
 
-The difference between the original data set and the augmented data set is the following ... 
+The new histogram of the training data is the following ... 
 
 ![alt text][image11]
 
@@ -144,17 +144,18 @@ My final model consisted of the following layers:
 | Dropout				| probability 0.5								|
 | Fully connected		| outputs 43 classes   							|
 | Softmax				|         										|
-|						|												|
-|						|												|
- 
 
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
 As I mentioned, I tried many different approaches with the LeNet architecture. Finally, when switching to the new model I used this logic:
+
 BATCH_SIZE = 64 - I read an article from Yann Lecun about not using batch size over 32 because in some situations it may not converge to the true minima. On the other hand, I wanted to speed things up a bit, so 64 was the compromise.
+
 optimizer - AdamOptimizer because it is good enough for this purposes.
+
 EPOCHS = 15 - I saw that there is no significant gain in training more epochs. It kind of reached a plateu after that.
+
 learning rate = 0.001 - in the new network, this learning rate did the job. In the LeNet architecture I tried reducing the rate in higher accuracy range but it did not suffice to reach 93%.
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
